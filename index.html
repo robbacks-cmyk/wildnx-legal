@@ -1,62 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WildNX</title>
+<title>WildNX — BC hunting regs, offline map</title>
+<meta name="description" content="WildNX carries the hunting synopsis for all nine BC regions, every management unit mapped, on your iPhone. Built by one hunter in Cranbrook.">
+
+<!-- Open Graph: most visitors arrive from a Facebook link, and without these
+     the preview card falls back to the bare URL. No og:image on purpose —
+     nothing here needs a second file uploaded beside this one. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.wildnx.ca/">
+<meta property="og:title" content="WildNX — BC hunting regs, offline map">
+<meta property="og:description" content="The hunting synopsis for all nine BC regions, every management unit mapped, on your iPhone.">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --gold: #B8860B;
-    --ink: #1a1a1a;
-    --muted: #5a5a5a;
-    --rule: #e0ddd6;
-    --paper: #fbfaf7;
+  :root{
+    --ink:#0B0B0B;
+    --gold:#E8B44A;
+    --text:#EDE8DF;
+    --muted:#9C958A;
+    --line:#241F17;
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    /* 17px floor: this is read one-handed, outdoors, in daylight. */
+    font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
   }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
-  .brand {
-    font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
-    color: var(--gold); font-weight: 700; margin: 0 0 .5rem;
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px}
+
+  /* ── Wordmark ─────────────────────────────────────────────── */
+  .hero{padding:56px 0 8px;text-align:center}
+  .wordmark{
+    font-family:Anton,Impact,"Arial Narrow",sans-serif;
+    font-weight:400;
+    color:var(--gold);
+    /* clamp so it fills a phone without overflowing a 320px screen */
+    font-size:clamp(46px,15vw,78px);
+    letter-spacing:.14em;
+    /* Anton's own sidebearing plus the tracking pushes the block right;
+       pull it back so the wordmark sits optically centred. */
+    margin:0 0 0 .14em;
+    line-height:1.05;
   }
-  h1 { font-size: 2rem; line-height: 1.15; margin: 0 0 1.5rem; font-weight: 700; }
-  p { margin: 0 0 1rem; }
-  .links {
-    list-style: none; margin: 2rem 0 0; padding: 0;
-    border-top: 1px solid var(--rule);
+  .subline{
+    margin:14px 0 0;
+    color:var(--muted);
+    font-size:15px;
+    letter-spacing:.17em;
+    text-transform:uppercase;
   }
-  .links li { border-bottom: 1px solid var(--rule); }
-  .links a {
-    display: block; padding: 1rem 0; color: var(--ink);
-    text-decoration: none; font-weight: 700; font-size: 1.05rem;
+
+  /* ── Lede ─────────────────────────────────────────────────── */
+  .lede{margin:34px 0 0;font-size:18px;line-height:1.7}
+
+  /* ── Call to action ───────────────────────────────────────── */
+  .cta-block{margin:36px 0 4px;text-align:center}
+  .cta{
+    display:block;
+    width:100%;
+    padding:20px 24px;          /* comfortably past a 44pt tap target */
+    background:var(--gold);
+    color:#0B0B0B;
+    font-size:19px;
+    font-weight:700;
+    letter-spacing:.02em;
+    text-decoration:none;
+    border-radius:12px;
   }
-  .links a:hover { color: var(--gold); }
-  .links span { display: block; color: var(--muted); font-weight: 400; font-size: 15px; margin-top: .15rem; }
-  footer {
-    margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
-    color: var(--muted); font-size: 15px;
+  .cta:active{background:#D9A43C}
+  .cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+  .fineprint{
+    margin:14px 0 0;
+    color:var(--muted);
+    font-size:15px;
+  }
+
+  /* ── Features ─────────────────────────────────────────────── */
+  .features{margin:46px 0 0;border-top:1px solid var(--line)}
+  .feature{padding:26px 0;border-bottom:1px solid var(--line)}
+  .feature h2{
+    margin:0 0 8px;
+    color:var(--gold);
+    font-family:Anton,Impact,"Arial Narrow",sans-serif;
+    font-weight:400;
+    font-size:22px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+  }
+  .feature p{margin:0}
+
+  /* ── Footer ───────────────────────────────────────────────── */
+  footer{margin:34px 0 0;padding:0 0 56px}
+  .links{margin:0;font-size:16px}
+  .links a{color:var(--gold);text-decoration:none;padding:6px 0;display:inline-block}
+  .links a:hover,.links a:focus{text-decoration:underline}
+  .sep{color:var(--line);padding:0 6px}
+  .disclaimer{
+    margin:18px 0 0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  @media (min-width:600px){
+    .hero{padding-top:76px}
+    .cta{display:inline-block;width:auto;min-width:340px}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <p class="brand">WildNX</p>
-  <h1>Hunt alone. Never lost.</h1>
-  <p>WildNX is a hunting app for British Columbia.</p>
 
-  <ul class="links">
-    <li><a href="privacy.html">Privacy Policy<span>What the app collects, where it goes, and how to delete it.</span></a></li>
-    <li><a href="support.html">Support<span>Get help or ask a question.</span></a></li>
-  </ul>
+  <header class="hero">
+    <h1 class="wordmark">WILDNX</h1>
+    <p class="subline">BC hunting regs, offline map</p>
+  </header>
+
+  <p class="lede">
+    WildNX is built by one hunter in Cranbrook, British Columbia. It carries the
+    hunting synopsis for all nine regions of the province, with every management
+    unit mapped. The regulations and the unit boundaries live on the phone, so
+    they are there when the signal is not. It warns you as you approach a
+    management unit boundary, records your trail with the phone in your pocket,
+    and composes an SOS message with your coordinates for you to send.
+  </p>
+
+  <div class="cta-block">
+    <a class="cta" href="https://apps.apple.com/ca/app/id6773033606">Download on the App Store</a>
+    <p class="fineprint">iPhone &middot; Canada &middot; 14-day free trial, then $24.99/year</p>
+  </div>
+
+  <section class="features">
+
+    <div class="feature">
+      <h2>The regs</h2>
+      <p>
+        The synopsis for all nine BC regions, resolved by management unit —
+        open seasons, bag limits, closures and no-shooting areas for the unit
+        you are standing in, rather than a document to scroll through.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h2>The map</h2>
+      <p>
+        Every management unit in the province, drawn on the map, with a warning
+        as you come up on a boundary — so you know which unit's rules apply
+        before you cross it, not after.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h2>The trail</h2>
+      <p>
+        Record your trail with the phone in your pocket and the screen locked.
+        iOS can interrupt background recording, so the map shows a break
+        wherever that happens instead of drawing a line you never walked.
+      </p>
+    </div>
+
+  </section>
 
   <footer>
-    WildNX — British Columbia, Canada
+    <p class="links">
+      <a href="privacy.html">Privacy</a><span class="sep">&middot;</span><a href="support.html">Support</a><span class="sep">&middot;</span><a href="mailto:WildNX@hotmail.com">WildNX@hotmail.com</a>
+    </p>
+    <p class="disclaimer">
+      Not affiliated with or endorsed by the Province of British Columbia.
+      Always verify against the official synopsis.
+    </p>
   </footer>
+
 </div>
 </body>
 </html>
