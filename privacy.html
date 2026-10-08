@@ -54,7 +54,7 @@
 <header>
   <p class="brand">WildNX</p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: October 6, 2026</p>
+  <p class="updated">Last updated: October 8, 2026</p>
 </header>
 
 <p class="lead">WildNX is a hunting app for British Columbia. It records where you have walked, shows you the regulations for where you are standing, and lets you share your position with people you choose. This page explains what the app collects, where it goes, and how to get rid of it.</p>
@@ -86,7 +86,15 @@
 <p>From History you can share a trip's summary (numbers only) or its trail file (exactly where you went, with times). From a pin's details you can share the pin: its type, your note, the date and time it was dropped, its exact coordinates, a map link, and its photo if it has one. Before a photo is shared, WildNX removes its hidden details, such as where it was taken and which phone took it. WildNX hands all of this to your phone's share sheet, and you choose where it goes. WildNX does not upload it or send it anywhere itself. The map link is a Google Maps link, or an Apple Maps link if you hold POSITION on the pin card. If either link is opened, or a messaging app shows a preview of it, Google or Apple receives the pin's position under its own privacy terms.</p>
 <p>You can also send a trip to another WildNX hunter. The file holds the trip's trail (exactly where you went, with times), its name and date, its distance and time, where you walked, drove, stopped and sat, and your display name (the name your buddies see). A short message goes with it, with your display name and a link to WildNX on the App Store. The file does not include your step counts, your pins or your photos. WildNX hands the file to your phone's share sheet, and you choose where it goes. WildNX does not upload it or send it anywhere itself. It is a standard GPX trail file, so other mapping apps can open it too.</p>
 <p>Trips you open from a file, including ones other hunters send you, stay only on your phone, under SHARED WITH ME, until you delete them. They are removed when you delete your account.</p>
-<p>The app also uses your position, without storing it, to show you which management unit you are in and whether you are near a boundary or a closure.</p>
+<p>The app also uses your position, without storing it, to show you which management unit you are in, whether you are near a boundary or a closure, and whether you are on private land. All of this is worked out on your phone. Your position is not sent anywhere for it.</p>
+
+<h3>Private land maps</h3>
+<p>WildNX shows private land from ParcelMap BC, published by DataBC under the Open Government Licence – British Columbia. These maps hold public government data only, with no owner names.</p>
+<p>They are downloaded one area at a time from WildNX's file host, packs.wildnxmaps.com, which runs on <strong>Cloudflare</strong>. On Wi-Fi, WildNX downloads by itself the area your phone is in (and a neighbouring area when you are near its edge) and keeps them up to date; on cell data it asks you first. It works out which area you are in on your phone and never sends your position. Like any web server, the file host sees your phone's internet address and which area's file was asked for, so it can tell roughly where you are. WildNX keeps no record of which areas you download. You can turn the automatic download off, and remove areas, in the Hunter tab.</p>
+<p>Land you mark NO ALERTS HERE (your own land, for example) is kept in a list on your phone only.</p>
+
+<h3>Notifications</h3>
+<p>If you allow notifications, WildNX can tell you when you walk onto private land while you are recording a trip and WildNX is not on your screen (with your phone in your pocket, for example). WildNX makes the notification on your phone itself. Nothing is sent to us or to anyone else to make it, and WildNX does not use push notifications. You can change your answer at any time in your iPhone's Settings.</p>
 
 <h3>Your step history (Motion &amp; Fitness)</h3>
 <p>If you allow Motion &amp; Fitness, WildNX reads your phone's step counts for the times you recorded a trail, only to tell walking from slow driving. They stay on your phone, are never uploaded, and are deleted with the trail or your account.</p>
@@ -111,7 +119,7 @@
 
 <h2>Where your information is stored</h2>
 <p>Accounts, profiles, buddy connections and shared positions are stored with <strong>Supabase</strong>, a hosting provider, in its <strong>us-west-1</strong> region — servers located in Northern California, United States. This means your information is held outside Canada and is subject to United States law, including lawful access requests by United States authorities. Crash reports are held by <strong>Sentry</strong>.</p>
-<p>Maps are provided by <strong>Apple Maps</strong>, and weather and storm forecasts come from <strong>Open-Meteo</strong>, a weather service that does not require an account. When the app draws a map or checks the forecast, those services necessarily receive the area you are looking at, under their own privacy terms — for weather, the app rounds your coordinate to roughly 100 metres before sending it, rather than your exact position.</p>
+<p>Maps are provided by <strong>Apple Maps</strong>, and weather and storm forecasts come from <strong>Open-Meteo</strong>, a weather service that does not require an account. When the app draws a map or checks the forecast, those services necessarily receive the area you are looking at, under their own privacy terms — for weather, the app rounds your coordinate to roughly 100 metres before sending it, rather than your exact position. Private land maps come from WildNX's file host on <strong>Cloudflare</strong>, as described above.</p>
 
 <h2>How long it is kept</h2>
 <p>Your account and profile are kept until you delete your account.</p>
@@ -120,7 +128,7 @@
 
 <h2>Deleting your account</h2>
 <p>You can delete your account from inside the app, under your profile. Deletion removes, on our servers: your profile, your buddy connections and every position you have shared. Your buddies stop seeing you and the connection disappears from their list.</p>
-<p>It also clears your phone: every trail you have recorded or opened from a file, every field pin and its photos, and everything saved in the app's settings and caches. What is not cleared is your device's own record that you have seen the app's safety warning, and reference material that is not personal to you — cached copies of the regulations, maps and closures, which are the same for every hunter.</p>
+<p>It also clears your phone: every trail you have recorded or opened from a file, every field pin and its photos, and everything saved in the app's settings and caches. That includes the private land maps you downloaded, because the areas you picked can say roughly where you hunt. What is not cleared is your device's own record that you have seen the app's safety warning, and reference material that is not personal to you — cached copies of the regulations, regulation maps and closures, which are the same for every hunter.</p>
 <p>Deletion cannot be undone. If you would rather ask us to do it, email <a href="mailto:WildNX@hotmail.com">WildNX@hotmail.com</a> from the address on your account.</p>
 
 <h2>Children</h2>
