@@ -54,7 +54,7 @@
 <header>
   <p class="brand">WildNX</p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: October 8, 2026</p>
+  <p class="updated">Last updated: October 14, 2026</p>
 </header>
 
 <p class="lead">WildNX is a hunting app for British Columbia. It records where you have walked, shows you the regulations for where you are standing, and lets you share your position with people you choose. This page explains what the app collects, where it goes, and how to get rid of it.</p>
@@ -82,10 +82,14 @@
 
 <h3>Your location</h3>
 <p>WildNX records your position while you are tracking a hunt. It does this continuously, including when your phone is in your pocket and the screen is off, because a trail with gaps in it is not much use.</p>
-<p>Your recorded trails are stored <strong>on your phone</strong>. They are not uploaded anywhere.</p>
+<p>Your recorded trails are stored <strong>on your phone</strong>. They are not uploaded anywhere, unless you send a trip as a link (below), and then only locked.</p>
 <p>From History you can share a trip's summary (numbers only) or its trail file (exactly where you went, with times). From a pin's details you can share the pin: its type, your note, the date and time it was dropped, its exact coordinates, a map link, and its photo if it has one. Before a photo is shared, WildNX removes its hidden details, such as where it was taken and which phone took it. WildNX hands all of this to your phone's share sheet, and you choose where it goes. WildNX does not upload it or send it anywhere itself. The map link is a Google Maps link, or an Apple Maps link if you hold POSITION on the pin card. If either link is opened, or a messaging app shows a preview of it, Google or Apple receives the pin's position under its own privacy terms.</p>
-<p>You can also send a trip to another WildNX hunter. The file holds the trip's trail (exactly where you went, with times), its name and date, its distance and time, where you walked, drove, stopped and sat, and your display name (the name your buddies see). A short message goes with it, with your display name and a link to WildNX on the App Store. The file does not include your step counts, your pins or your photos. WildNX hands the file to your phone's share sheet, and you choose where it goes. WildNX does not upload it or send it anywhere itself. It is a standard GPX trail file, so other mapping apps can open it too.</p>
-<p>Trips you open from a file, including ones other hunters send you, stay only on your phone, under SHARED WITH ME, until you delete them. They are removed when you delete your account.</p>
+<p>You can also send a trip to another WildNX hunter as a link. The trip holds its trail (exactly where you went, with times), its name and date, its distance and time, where you walked, drove, stopped and sat, and your display name (the name your buddies see). It does not include your step counts, your pins or your photos.</p>
+<p>Before the trip leaves your phone, WildNX locks it (encrypts it) on your phone with a new key made for that trip alone, and uploads the locked trip to WildNX's file host, trip.wildnxmaps.com, which runs on <strong>Cloudflare</strong>. The key is only in the link, after the "#", and phones and browsers never send that part to a server, so neither WildNX nor Cloudflare can unlock the trip or read anything in it. The file host keeps only the locked trip, its size and when it was uploaded: no name, no account and nothing it can read.</p>
+<p>You must be signed in to send a link. WildNX checks that you are, then keeps nothing that ties the trip to you or your account. The file host's request logs are turned off, so WildNX keeps no record of your internet address or of who sent which trip. Like any web server, Cloudflare sees the internet address of a phone that uploads or opens a trip, under its own privacy terms.</p>
+<p>The link stops working 7 days after you send it, and the locked trip is deleted from the file host within a day after that. Until then, anyone you give the link to, or anyone they pass it on to, can open the trip. The link goes in a short message with your display name, the trip's name and the last day it works. WildNX hands it to your phone's share sheet, and you choose where it goes. When a messaging app shows a preview of the link, it gets a page that is the same for every trip, with no trip, name or place in it.</p>
+<p>You do not have to send a link. You can send the trip as a file instead, and WildNX offers this when a link cannot be made (with no signal, for example). The file is a standard GPX trail file that other mapping apps can open too. WildNX hands it to your phone's share sheet and does not upload it or send it anywhere itself.</p>
+<p>Trips you open from a file or a link, including ones other hunters send you, stay only on your phone, under SHARED WITH ME, until you delete them. Opening a link downloads the locked trip from the file host and unlocks it on your phone; the file host never sees the key. They are removed when you delete your account.</p>
 <p>The app also uses your position, without storing it, to show you which management unit you are in, whether you are near a boundary or a closure, and whether you are on private land. All of this is worked out on your phone. Your position is not sent anywhere for it.</p>
 
 <h3>Private land maps</h3>
@@ -114,21 +118,22 @@
   <li>There is no advertising in WildNX.</li>
   <li>Your information is never sold, rented or given to anyone for marketing.</li>
   <li>There is no analytics tracking of how you use the app.</li>
-  <li>Your recorded trails are never uploaded.</li>
+  <li>Your recorded trails are never uploaded, except a trip you choose to send as a link, and then only locked, so only people with the link can open it.</li>
 </ul>
 
 <h2>Where your information is stored</h2>
 <p>Accounts, profiles, buddy connections and shared positions are stored with <strong>Supabase</strong>, a hosting provider, in its <strong>us-west-1</strong> region — servers located in Northern California, United States. This means your information is held outside Canada and is subject to United States law, including lawful access requests by United States authorities. Crash reports are held by <strong>Sentry</strong>.</p>
-<p>Maps are provided by <strong>Apple Maps</strong>, and weather and storm forecasts come from <strong>Open-Meteo</strong>, a weather service that does not require an account. When the app draws a map or checks the forecast, those services necessarily receive the area you are looking at, under their own privacy terms — for weather, the app rounds your coordinate to roughly 100 metres before sending it, rather than your exact position. Private land maps come from WildNX's file host on <strong>Cloudflare</strong>, as described above.</p>
+<p>Maps are provided by <strong>Apple Maps</strong>, and weather and storm forecasts come from <strong>Open-Meteo</strong>, a weather service that does not require an account. When the app draws a map or checks the forecast, those services necessarily receive the area you are looking at, under their own privacy terms — for weather, the app rounds your coordinate to roughly 100 metres before sending it, rather than your exact position. Private land maps come from WildNX's file host on <strong>Cloudflare</strong>, as described above, and trips you send as links are held there, locked, for 7 days.</p>
 
 <h2>How long it is kept</h2>
 <p>Your account and profile are kept until you delete your account.</p>
 <p>Positions you have shared with a buddy are deleted automatically, every night, once they are more than <strong>seven days</strong> old.</p>
+<p>A trip you send as a link is deleted from the file host within a day after its 7 days are up.</p>
 <p>Crash reports are kept by Sentry for 30 days and then deleted.</p>
 
 <h2>Deleting your account</h2>
-<p>You can delete your account from inside the app, under your profile. Deletion removes, on our servers: your profile, your buddy connections and every position you have shared. Your buddies stop seeing you and the connection disappears from their list.</p>
-<p>It also clears your phone: every trail you have recorded or opened from a file, every field pin and its photos, and everything saved in the app's settings and caches. That includes the private land maps you downloaded, because the areas you picked can say roughly where you hunt. What is not cleared is your device's own record that you have seen the app's safety warning, and reference material that is not personal to you — cached copies of the regulations, regulation maps and closures, which are the same for every hunter.</p>
+<p>You can delete your account from inside the app, under your profile. Deletion removes, on our servers: your profile, your buddy connections and every position you have shared. Your buddies stop seeing you and the connection disappears from their list. A trip you have sent as a link is not tied to your account, so it cannot be found and deleted early; it is deleted within a day after its 7 days are up.</p>
+<p>It also clears your phone: every trail you have recorded or opened from a file or a link, every field pin and its photos, and everything saved in the app's settings and caches. That includes the private land maps you downloaded, because the areas you picked can say roughly where you hunt. What is not cleared is your device's own record that you have seen the app's safety warning, and reference material that is not personal to you — cached copies of the regulations, regulation maps and closures, which are the same for every hunter.</p>
 <p>Deletion cannot be undone. If you would rather ask us to do it, email <a href="mailto:WildNX@hotmail.com">WildNX@hotmail.com</a> from the address on your account.</p>
 
 <h2>Children</h2>
